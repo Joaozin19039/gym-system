@@ -217,7 +217,7 @@ Dev 2:
 
   Treinos
   
-  Plan
+  Planos
   
   Aulas
   
