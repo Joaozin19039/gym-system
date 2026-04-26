@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login/login';
-import Sidebar from './components/Sidebar/sidebar'; 
-import Dashboard from './components/Dashboard/dashboard';
-import Alunos from './components/Alunos/alunos';
+import Login from './pages/admin/Login/login';
+import Sidebar from './pages/admin/Sidebar/sidebar'; 
+import Dashboard from './pages/admin/Dashboard/dashboard';
+import Alunos from './pages/admin/Alunos/alunos';
 import './App.css';
 
 function App() {
