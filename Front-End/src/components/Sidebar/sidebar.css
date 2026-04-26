@@ -1,0 +1,117 @@
+:root {
+  --sidebar-bg: #0B0B0F;       /* Fundo quase preto, muito moderno */
+  --sidebar-item-hover: #1A1A24; /* Cor ao passar o mouse */
+  --accent-color: #60A5FA;      /* Azul de destaque que você já usa */
+  --text-main: #FFFFFF;
+  --text-dim: #94A3B8;         /* Cinza suave para itens secundários */
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed; /* Mantém a sidebar fixa ao rolar a página */
+  left: 0;
+  top: 0;
+  border-right: 1px solid #1E293B;
+}
+
+.sidebar-logo {
+  padding: 20px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.sidebar-logo h2 {
+  color: var(--text-main);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.sidebar-logo span {
+  color: var(--accent-color);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre os botões */
+  flex: 1;
+}
+
+.menu-item {
+  text-decoration: none; /* REMOVE A BARRINHA EMBAIXO */
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: block; /* Garante que o link ocupe a largura toda */
+}
+
+.menu-item:hover {
+  background-color: var(--sidebar-item-hover);
+  color: var(--accent-color);
+}
+
+.menu-item.active {
+  background-color: var(--sidebar-item-hover);
+  color: var(--text-main);
+  border-left: 4px solid var(--accent-color);
+}
+
+.sidebar-footer {
+  padding-top: 20px;
+  border-top: 1px solid #1E293B;
+}
+
+.logout-button {
+  width: 50%;
+  padding: 10px;
+  background: none;
+  border: 2px solid #ef4444; /* Vermelho suave para o "Sair" */
+  color: #ef4444;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+/* 1. Ajuste para o menu não esticar e empurrar o Sair para o fundo */
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: none; /* Impede que o menu estique e jogue o Sair para baixo */
+}
+
+/* 2. Ajuste do container do rodapé */
+.sidebar-footer {
+  margin-top: 240px; /* Define uma distância fixa do menu, em vez de ir para o fim */
+  padding-top: 20px;
+  border-top: 1px solid #1E293B;
+}
+
+/* 3. Estilo final do botão Sair */
+.logout-button {
+  width: 100%; 
+  padding: 10px;
+  background: none;
+  border: 2px solid #ef4444;
+  color: #ef4444;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}

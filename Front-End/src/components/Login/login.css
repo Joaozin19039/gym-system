@@ -1,0 +1,100 @@
+/* login.css */
+/*PALETA DE CORES:
+FUNDO: SEMPRE #000000, #666; OU #f4f7f6;
+
+BOTÃO PRINCIPAL: #617cb5; 
+TEXTOS: #FFFFFF;
+DESTAQUE: #60A5FA; 
+TEXTO DE IMPUT: #666;
+DETALHES:  #2294c5;
+*/
+
+
+
+/* Centraliza tudo no meio da tela e ocupa a altura toda */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f7f6; /* Uma cor de fundo suave */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* A caixa branca com bordas arredondadas e sombra */
+.login-box {
+  background-color: #f4f7f6;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+
+/* Estilo para a logo */
+.login-logo {
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+
+/* O título "Acesse sua conta" */
+h2 {
+  color:  #2294c5;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+/* Estilo para cada grupo de input */
+.input-group {
+  margin-bottom: 15px;
+}
+
+/* O estilo dos campos de texto (usuário e senha) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #2563EB; /* Cor de destaque para o foco (ex: um tom de vermelho) */
+  outline: none;
+}
+
+/* O botão de "Entrar" */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2294c5; /* Cor de ação principal da sua academia */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #60A5FA; /* Uma cor um pouco mais escura ao passar o mouse */
+}
+
+/* O link "Esqueceu a senha?" */
+.forgot-password {
+  display: block;
+  margin-top: 15px;
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
