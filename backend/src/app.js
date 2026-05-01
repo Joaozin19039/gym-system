@@ -11,8 +11,8 @@ app.use(express.json());
 
 
 //  USAR rotas (aqui)
-const userRoutes = require ("./routes/user.routes");
-app.use ("/api", userRoutes);
+const authRoutes = require("./routes/auth.routes");
+app.use("/api/auth", authRoutes);
 
 
 // rota teste
