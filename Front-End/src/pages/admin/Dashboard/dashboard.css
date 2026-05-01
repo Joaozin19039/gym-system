@@ -1,0 +1,87 @@
+.dashboard-content {
+  padding: 20px;
+  color: #FFFFFF;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  color: #60A5FA; /* Cor de destaque */
+  margin-bottom: 5px;
+}
+
+.dashboard-header p {
+  color: #94A3B8;
+  margin-bottom: 30px;
+}
+
+/* Estilo dos Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: #1A1A24; /* Um pouco mais claro que o fundo da sidebar */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1E293B;
+}
+
+.card h3 {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+
+.card-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* Estilo da Tabela */
+.table-container {
+  background-color: #1A1A24;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #1E293B;
+}
+
+.table-container h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.alunos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.alunos-table th, .alunos-table td {
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #1E293B;
+}
+
+.alunos-table th {
+  color: #94A3B8;
+  font-size: 14px;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status-badge.ativo {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.status-badge.inativo {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+}
