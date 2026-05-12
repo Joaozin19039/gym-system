@@ -1,63 +1,93 @@
-const trainings = require("../models/training.model");
+const Training = require("../models/training.model");
 
 // criar treino
-exports.createTraining = (req, res) => {
-  const { nome, grupoMuscular } = req.body;
+exports.createTraining = async (req, res) => {
+  try {
+    const { nome, grupoMuscular, exercicios } = req.body;
 
-  const training = {
-    id: Date.now(),
-    nome,
-    grupoMuscular
-  };
+    const training = await Training.create({
+      nome,
+      grupoMuscular,
+      exercicios: exercicios || []
+    });
 
-  trainings.push(training);
-
-  res.status(201).json(training);
+    res.status(201).json(training);
+  } catch (error) {
+    res.status(500).json({
+      message: "Erro ao criar treino",
+      error: error.message
+    });
+  }
 };
 
 // listar treinos
-exports.getTrainings = (req, res) => {
-  res.json(trainings);
+exports.getTrainings = async (req, res) => {
+  try {
+    const trainings = await Training.find();
+
+    res.json(trainings);
+  } catch (error) {
+    res.status(500).json({
+      message: "Erro ao listar treinos",
+      error: error.message
+    });
+  }
 };
 
 // editar treino
-exports.updateTraining = (req, res) => {
-  const { id } = req.params;
-  const { nome, grupoMuscular } = req.body;
+exports.updateTraining = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { nome, grupoMuscular, exercicios } = req.body;
 
-  const training = trainings.find(
-    treino => treino.id == id
-  );
+    const training = await Training.findByIdAndUpdate(
+      id,
+      {
+        nome,
+        grupoMuscular,
+        exercicios
+      },
+      {
+        new: true,
+        runValidators: true
+      }
+    );
 
-  if (!training) {
-    return res.status(404).json({
-      message: "Treino não encontrado"
+    if (!training) {
+      return res.status(404).json({
+        message: "Treino não encontrado"
+      });
+    }
+
+    res.json(training);
+  } catch (error) {
+    res.status(500).json({
+      message: "Erro ao atualizar treino",
+      error: error.message
     });
   }
-
-  training.nome = nome || training.nome;
-  training.grupoMuscular = grupoMuscular || training.grupoMuscular;
-
-  res.json(training);
 };
 
 // deletar treino
-exports.deleteTraining = (req, res) => {
-  const { id } = req.params;
+exports.deleteTraining = async (req, res) => {
+  try {
+    const { id } = req.params;
 
-  const index = trainings.findIndex(
-    treino => treino.id == id
-  );
+    const training = await Training.findByIdAndDelete(id);
 
-  if (index === -1) {
-    return res.status(404).json({
-      message: "Treino não encontrado"
+    if (!training) {
+      return res.status(404).json({
+        message: "Treino não encontrado"
+      });
+    }
+
+    res.json({
+      message: "Treino removido com sucesso"
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Erro ao deletar treino",
+      error: error.message
     });
   }
-
-  trainings.splice(index, 1);
-
-  res.json({
-    message: "Treino removido com sucesso"
-  });
 };
